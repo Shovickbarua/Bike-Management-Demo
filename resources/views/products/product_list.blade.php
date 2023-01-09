@@ -22,7 +22,8 @@
                 <th>Sale Price</th>
                 <th>Date</th>
                 <th>Image</th>
-                <th width="17%">Action</th>
+                <th width="">Action</th>
+                <th width=""></th>
 						  </tr>
 						  </thead>
 						  <tbody>
@@ -48,6 +49,7 @@
 										</form>
 									</div>
 									</td>
+									<td><a href="{{route('add_sale', $product->product_name)}}" class="btn btn-primary btn-md">Add Sale</a></td>
 								</tr>
 							@endforeach
 						  </tbody>

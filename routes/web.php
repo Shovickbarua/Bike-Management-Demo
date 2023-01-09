@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 
 
 /*
@@ -37,6 +38,10 @@ Route::resource('/expense',ExpenseController::class);
 Route::resource('/role',RoleController::class);
 
 Route::resource('/product',ProductController::class);
+
+Route::resource('/sale',SaleController::class);
+Route::get('/sales/{product_name}',[SaleController::class,'add_sales'])->name('add_sale');
+Route::get('/invoice/{invoiceId}',[SaleController::class,'invoice'])->name('invoice');
 
 Route::get('/pdf',[ProductController::class,'downloadpdf'])->name('pdf');
 

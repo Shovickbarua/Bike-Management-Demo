@@ -14,34 +14,37 @@
         <table >
             <thead>
                 <tr class="table-danger table-bordered">
-                    <th scope="col">Name</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Invoice No</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Client Name</th>
                     <th scope="col">Quantity</th>
-                    <th scope="col">Cost Price</th>
-                    <th scope="col">Sale Price</th>
+                    <th scope="col">Contact</th>
+                    
                 </tr>
             </thead>
             <tbody>
            
                 <tr>
+                    <td>{{$products->invoiceId}}</td>
                     <td>{{$products->product_name}}</td>
-                    <td>{{$products->cat_name}}</td>
-                    <td>{{$products->quantity}}</td>
-                    <td>{{$products->cost}}</td>
-                    <td>{{$products->sale}}</td>
+                    <td>{{$products->cus_name}}</td>
+                    <td>{{$products->pro_quantity}}</td>
+                    <td>{{$products->contact}}</td>
+                    
                 </tr>
                 <tr>
-                    <th>Image</th>
+                   
                     <th>Date</th>
+                    <th>Total</th>
                 </tr>
                 <tr>
-                    <td><td><img src="{{Storage::url('app/products/'. $products->image)}} " style="height:150px;"/></td></td>
+                  
                     <td>{{$products->dob}}</td>
+                    <td>{{$products->total}}</td>
                 </tr>
 		
             </tbody>
         </table>
-        <a href="{{route('pdf',$products->product_name)}}" class="btn btn-success float-right btn-sm">Download</a>
 				  
     </div>
     

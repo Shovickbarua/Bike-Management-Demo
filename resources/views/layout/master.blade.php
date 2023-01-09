@@ -142,6 +142,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Product List</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('sale.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sale List</p>
+                </a>
+              </li>
             </ul>
           </li>
 		  <li class="nav-item">
@@ -184,6 +190,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{route('expense.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Expense List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Bike Services
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('expense.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>First Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Second Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Third Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fouth Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fifth Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sixth Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Seventh Service List</p>
+                </a>
+                <a href="{{route('expense.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Eighth Service List</p>
                 </a>
               </li>
             </ul>
