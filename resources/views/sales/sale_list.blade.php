@@ -6,12 +6,11 @@
 			<div class="col-lg-12">
 				<div class="card">
 				  <div class="card-header">
-					<h3 class="card-title">All Customer</h3>
-					<a href="{{route('sale.create')}}" class="btn btn-success float-right btn-sm"><i class="fa fa-plus-circle"></i>Add Product</a>
+					<h3 class="card-title">All Sales</h3>
 				  </div>
 					<!-- /.card-header -->
 					<div class="card-body">
-          <table id="example1" class="table table-bordered table-striped">
+          <table id="example" class="table table-bordered table-striped">
 						  <thead>
 						  <tr>
                 <th width="7%">Serial</th>

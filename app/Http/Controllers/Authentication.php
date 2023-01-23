@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class Authentication extends Controller
@@ -19,7 +20,8 @@ class Authentication extends Controller
         );
         //print_r($request->toArray());
         if(!!$this->validUser($request)){
-            return view('dashboards.dashboard');
+
+            return redirect(route('dash'));
         }else{
             echo 'error';
         }

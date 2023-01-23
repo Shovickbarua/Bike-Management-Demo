@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSalesTable extends Migration
+class CreateBikesalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,22 @@ class CreateSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('bikesales', function (Blueprint $table) {
             $table->id();
             $table->string("invoiceId");
-            $table->string("cus_name");
-            $table->string("product_name");
-            $table->string("cat_name");
-            $table->string("cost");
-            $table->string("SKU");
-            $table->string("sale");
+            $table->string("client_name");
             $table->integer("method_id");
-            $table->string("pro_quantity");
             $table->date("dob");
             $table->string("contact");
+            $table->string("address");
+            $table->string("bike_name");
+            $table->string("bsquantity");
+            $table->string("engine_no");
+            $table->string("chas_no");
+            $table->string("sale_price");
+            $table->string("registration");
+            $table->string("bank_draft");
+            $table->string("brta");
             $table->string("profit");
             $table->string("total");
             $table->timestamps();
@@ -39,6 +42,6 @@ class CreateSalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sales');
+        Schema::dropIfExists('bikesales');
     }
 }

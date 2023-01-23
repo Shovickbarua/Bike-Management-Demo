@@ -19,20 +19,20 @@
                     </select>
                   </div>
                   <div class="form-group col-md-4">
+                    <label for="name">SKU<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="SKU" name="SKU" value="">
+                  </div>
+                  <div class="form-group col-md-4">
                     <label for="dob">Date<font style="color:red">*</font></label>
                     <input type="date" class="form-control singledatepicker" id="dob" name="dob" autocomplete="on">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Quantity<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="quantity" value="">
+                    <input type="number" class="form-control" id="" placeholder="" name="quantity" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Cost Price<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="cost" value="">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="name">Sale Price<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="sale" value="">
                   </div>
                   <div class="form-group col-md-4">
                       <label for="image">Image Upload</label>

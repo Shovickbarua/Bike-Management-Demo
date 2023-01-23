@@ -6,28 +6,55 @@
         <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title mb-2">Latest Product Sale</h5>
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <table id="" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Quantity</th>
+                      <th>Date</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($sales as $sale)
+                    <tr>
+                      <td>{{$sale->product_name}}</td>
+                      <td>{{$sale->pro_quantity}}</td>
+                      <td>{{$sale->dob}}</td>
+                      <td>{{$sale->total}}</td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+						</table>
               </div>
             </div>
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title mb-2">Latest Bike Sales</h5>
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <table id="" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Bike Name</th>
+                      <th>Quantity</th>
+                      <th>Date</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach($bikesales as $bsale)
+                    <tr>
+                      <td>{{$bsale->bike_name}}</td>
+                      <td>{{$bsale->bsquantity}}</td>
+                      <td>{{$bsale->dob}}</td>
+                      <td>{{$bsale->total}}</td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+						</table>
               </div>
             </div><!-- /.card -->
           </div>

@@ -18,7 +18,6 @@
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Cost Price</th>
-                    <th scope="col">Sale Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,14 +27,11 @@
                     <td>{{$products->cat_name}}</td>
                     <td>{{$products->quantity}}</td>
                     <td>{{$products->cost}}</td>
-                    <td>{{$products->sale}}</td>
                 </tr>
                 <tr>
-                    <th>Image</th>
                     <th>Date</th>
                 </tr>
                 <tr>
-                    <td><td><img src="{{Storage::url('app/products/'. $products->image)}} " style="height:150px;"/></td></td>
                     <td>{{$products->dob}}</td>
                 </tr>
 		

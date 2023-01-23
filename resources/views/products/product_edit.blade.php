@@ -20,20 +20,20 @@
                     </select>
                   </div>
                   <div class="form-group col-md-4">
+                    <label for="name">SKU<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="SKU" value="{{$product->SKU}}">
+                  </div>
+                  <div class="form-group col-md-4">
                     <label for="dob">Date<font style="color:red">*</font></label>
                     <input type="date" class="form-control singledatepicker" id="dob" name="dob" autocomplete="off" value="{{$product->dob}}">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Quantity<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="quantity" value="{{$product->quantity}}">
+                    <input type="number" class="form-control" id="" placeholder="" name="quantity" value="{{$product->quantity}}">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Cost Price<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="cost" value="{{$product->cost}}">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="name">Sale Price<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="sale" value="{{$product->sale}}">
                   </div>
                   <div class="form-group col-md-4">
                       <label for="image">Image Upload</label>

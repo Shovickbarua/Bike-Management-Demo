@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Carbon\Carbon;
 
-class CreateProductsTable extends Migration
+class CreateBikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +13,13 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('bikes', function (Blueprint $table) {
             $table->id();
-            $table->string("product_name");
-            $table->string("SKU");
-            $table->integer("cat_id");
-            $table->string("quantity");
+            $table->string("bike_name");
+            $table->string("bquantity");
             $table->date("dob");
-            $table->string("cost");
+            $table->string("bcost");
+            $table->string("bsale");
             $table->string("image");
             $table->timestamps();
         });
@@ -34,6 +32,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('bikes');
     }
 }

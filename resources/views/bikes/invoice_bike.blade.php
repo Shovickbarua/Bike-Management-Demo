@@ -18,38 +18,35 @@
                     <th scope="col">Client Name</th>
                     <th scope="col">Date</th>
                     <th scope="col">Contact</th>
+                    <th scope="col">Address</th>
                     
                 </tr>
             </thead>
             <tbody>
            
                 <tr>
-                    <td>{{$product->invoiceId}}</td>
-                    <td>{{$product->cus_name}}</td>
-                    <td>{{$product->dob}}</td>
-                    <td>{{$product->contact}}</td>
+                    <td>{{$bike->invoiceId}}</td>
+                    <td>{{$bike->client_name}}</td>
+                    <td>{{$bike->dob}}</td>
+                    <td>{{$bike->contact}}</td>
+                    <td>{{$bike->address}}</td>
                     
                 </tr>
                 <tr>
                    
-                    <th>Product Name</th>
+                    <th>Bike Name</th>
                     <th>Quantity</th>
+                    <th>Sale Price</th>
                     <th>Amount</th>
                 </tr>
                 <tr>
-                  @foreach($products as $product)
-                    <td>{{$product->product_name}}</td>
-                    <td>{{$product->pro_quantity}}</td>
-                    <td>{{$product->total}}</td>
+                    <td>{{$bike->bikename}}</td>
+                    <td>{{$bike->bsquantity}}</td>
+                    <td>{{$bike->sale_price}}</td>
+                    <td>{{$bike->total}}</td>
                 </tr>
-                @endforeach
             </tbody>
-        </table>
-         <div class="form-row pb-3 mt-2">
-				<div class="col-md-6"><span class="pl-5"><strong>Total:</strong></span></div>
-				<div class="col-md-6"><span class="pl-5 "><strong>{{$products->sum('total')}}</strong></span></div>
-		 </div>
-				  
+        </table>			  
     </div>
     
 </body>

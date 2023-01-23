@@ -15,6 +15,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('/')}}plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('/')}}dist/css/adminlte.min.css">
+   <!-- DataTables -->
+   <link rel="stylesheet" href="{{asset('/')}}plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+   <link rel="stylesheet" href="{{asset('/')}}plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+   <link rel="stylesheet" href="{{asset('/')}}plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -114,14 +118,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{route('dash')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
           </li>
-		  <li class="nav-item">
+		    <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -137,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('product.index')}}" class="nav-link">
+                <a href="{{route('product.index')}}" class="nav-link" >
                   <i class="far fa-circle nav-icon"></i>
                   <p>Product List</p>
                 </a>
@@ -150,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-		  <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -169,6 +173,97 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{route('category.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Category List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Bike
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('bike.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Bike</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('bike.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bike List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('bike_sale.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bike Sale List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Bike Services
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>First Service List</p>
+                </a>
+                <a href="{{route('second')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Second Service List</p>
+                </a>
+                <a href="{{route('third')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Third Service List</p>
+                </a>
+                <a href="{{route('fourth')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fouth Service List</p>
+                </a>
+                <a href="{{route('fifth')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fifth Service List</p>
+                </a>
+                <a href="{{route('sixth')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sixth Service List</p>
+                </a>
+                <a href="{{route('seventh')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Seventh Service List</p>
+                </a>
+                <a href="{{route('eighth')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Eighth Service List</p>
+                </a>
+              </li>
+            </ul>
+          </li>   
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Reports
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('reports')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sale Reports</p>
                 </a>
               </li>
             </ul>
@@ -194,52 +289,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Bike Services
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('expense.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>First Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Second Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Third Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fouth Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fifth Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sixth Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Seventh Service List</p>
-                </a>
-                <a href="{{route('expense.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Eighth Service List</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -310,6 +359,63 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('/')}}plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/')}}dist/js/adminlte.min.js"></script>
+
+<!-- Data Table -->
+<script src="{{asset('/')}}plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="{{asset('/')}}plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="{{asset('/')}}plugins/pdfmake/pdfmake.min.js"></script>
+<script src="{{asset('/')}}plugins/pdfmake/vfs_fonts.js"></script>
+
+<script>
+ $(document).ready(function () {
+    $('#example').DataTable();
+});
+</script> 
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+});
+</script>
+<script>
+  var barcode ='';
+  var interval;
+  document.addEventListener('keydown',function(evt){
+    if(interval)
+      clearInterval(interval);
+    if(evt.code == 'Enter') {
+      if(barcode)
+        handleBarcode(barcode);
+      barcode = '';
+      return;
+    }
+    if(evt.key != 'Shift')
+      barcode += evt.key;
+    interval = setInterval(() => barcode ='',20);
+  });
+
+  function handleBarcode(scanned_barcode){
+      document.querySelector('#last_barcode').innerHTML = scanned_barcode; 
+  }
+</script> 
 @yield('scripts')
 </body>
 </html>

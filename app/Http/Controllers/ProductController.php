@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProductController extends Controller
@@ -16,6 +17,18 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        if(Session::has("invoiceId")){
+            Session::forget('invoiceId','cus_name','contact','method_id','dob');
+        }else{
+
+        }
+        $products= DB::table('products')
+                ->join('categories','products.cat_id','=','categories.id')
+                ->get();
+        return view('products.product_list',compact('products'));
+    }
+    public function indexsale()
     {
         $products= DB::table('products')
                 ->join('categories','products.cat_id','=','categories.id')
@@ -58,10 +71,10 @@ class ProductController extends Controller
              $product->image = $name;
          }
         $product->product_name = $request->product_name;
+        $product->SKU = $request->SKU;
         $product->cat_id = $request->cat_id;
         $product->quantity = $request->quantity;
         $product->cost = $request->cost;
-        $product->sale = $request->sale;
         $product->dob =$request->dob;
         $product->save();
 
@@ -80,10 +93,6 @@ class ProductController extends Controller
                 ->join('categories','products.cat_id','=','categories.id')
                 ->where('products.id','LIKE','%'.$request->id.'%')
                 ->first();
-       /* $products= DB::table('products')
-                ->join('categories','products.cat_id','=','categories.id')
-                ->where('products.product_name','LIKE','%'.$request->product_name.'%')
-                ->first(); */
         return view('products.show_product',compact('products'));
     }
 
@@ -126,6 +135,7 @@ class ProductController extends Controller
              $product->image = $name;
          }
         $product->product_name = $request->product_name;
+        $product->SKU = $request->SKU;
         $product->cat_id = $request->cat_id;
         $product->quantity = $request->quantity;
         $product->cost = $request->cost;
