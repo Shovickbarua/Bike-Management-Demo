@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Storage;
 class ProductController extends Controller
 {
     /**
@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         if(Session::has("invoiceId")){
-            Session::forget('invoiceId','cus_name','contact','method_id','dob');
+            Session::forget('invoiceId','cus_name','contact','method_id','dob','address');
         }else{
 
         }
@@ -93,7 +93,11 @@ class ProductController extends Controller
                 ->join('categories','products.cat_id','=','categories.id')
                 ->where('products.id','LIKE','%'.$request->id.'%')
                 ->first();
-        return view('products.show_product',compact('products'));
+                $path = base_path('logo-social.png');
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $pic ='data:image/'.$type . ';base64,' .base64_encode($data); 
+        return view('products.show_product',compact('products','pic'));
     }
 
     public function downloadpdf(Request $request){
@@ -101,6 +105,19 @@ class ProductController extends Controller
                 ->join('categories','products.cat_id','=','categories.id')
                 ->where('products.id','LIKE','%'.$request->id.'%')
                 ->first();
+               /* $image = $products->image;
+                $imageData = base64_encode(file_get_contents('app/products/'.$image));
+                $srcs = 'data:image/' . mime_content_type($image). ';base64,' .$imageData;*/
+        /*$path = base_path('logo-social.png');
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $pic ='data:image/'.$type . ';base64,' .base64_encode($data); 
+        $pdf = Pdf::setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true
+        ])->loadView('products.show_product', compact('products','pic'))->setPaper('a4', 'portrait'); */
+        //$PDFOptions = ['enable_remote' => true, 'chroot' => Storage::url('app/products/'. $products->image)];
+        //$pdf = Pdf::setOptions($PDFOptions)->loadView('products.show_product', compact('products'));
         $pdf = Pdf::loadView('products.show_product', compact('products'));
         return $pdf->download('product.pdf');
     }

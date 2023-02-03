@@ -7,15 +7,19 @@
               <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="name">Client Name<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="Name" name="client_name" value="">
+                    <input type="text" class="form-control" id="" placeholder="" name="client_name" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Father's Name<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="Name" name="fName" value="">
+                    <input type="text" class="form-control" id="" placeholder="" name="fName" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">NID No<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="Name" name="nid" value="">
+                    <input type="text" class="form-control" id="" placeholder="" name="nid" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Invoice No<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="invoiceId" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="group_id">Payment Method</label>
@@ -42,11 +46,11 @@
               <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="name">Brand<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="Name" name="bike_name" value="{{$bike->brand}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="brand" value="" >
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="name">Model No<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="Name" name="bike_name" value="{{$bike->bike_name}}" readonly>
+                    <label for="name">Model<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="bike_name" value="" >
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Quantity<font style="color:red">*</font></label>
@@ -54,43 +58,51 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Engine No<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="engine_no" value="{{$bike->engine_no}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="engine_no" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Chassis No<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="chas_no" value="{{$bike->chas_no}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="chas_no" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Model of Vehicle<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="veh_no" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Make of Vehicle<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="m_veh" value="{{$bike->m_veh}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="m_veh" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Year of manufacture<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="manu" value="{{$bike->manu}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="manu" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">No of Cylinder with CC<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="cc" value="{{$bike->cc}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="cc" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Seating Capacity<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="seat_cap" value="{{$bike->seat_cap}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="seat_cap" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Brake<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="brake" value="{{$bike->brake}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="brake" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Tyre Size<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="tyre" value="{{$bike->tyre}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="tyre" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Weight<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="weight" value="{{$bike->weight}}" readonly>
+                    <input type="text" class="form-control" id="" placeholder="" name="weight" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Color<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="color" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Cost<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="bcost" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Sale Price<font style="color:red">*</font></label>

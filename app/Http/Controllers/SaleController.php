@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Sale;
 use App\Models\Product;
+use App\Models\Category;
 use App\Models\methods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 
 class SaleController extends Controller
@@ -33,6 +35,7 @@ class SaleController extends Controller
     {
        
     } 
+    /*Add product Sale */
     public function add_sales(Request $request)
     {
       
@@ -42,6 +45,7 @@ class SaleController extends Controller
        return view('sales.add_sale',compact('products','methods'));
        
     }
+    /*Multiple Product Add */
     public function show_sale(Request $request)
     { 
         if(Session::has('invoiceId')){
@@ -49,11 +53,19 @@ class SaleController extends Controller
             ->first();
             $sale = Sale::where('invoiceId',session('invoiceId'))
             ->get();
+            return view('sales.show_sale',compact('sales','sale')); 
         }else{
-           
+            return redirect(route('sale.index'));
         }
-        return view('sales.show_sale',compact('sales','sale'));  
+         
        
+    }
+    //Add Old Product Sale
+    public function add_old_sale(){
+
+        $methods= methods::all();
+        $categories= Category::all();
+        return view('sales.add_old_sale',compact('categories','methods'));
     }
 
     /**
@@ -64,7 +76,7 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-     
+     if(!$request->invoiceId){
         $sale = new Sale();
 
         if(Session::has('invoiceId')){
@@ -73,37 +85,38 @@ class SaleController extends Controller
             $sale->method_id    = session('method_id');
             $sale->contact      = session('contact');
             $sale->dob          = session('dob');
+            $sale->address      = session('address');
         }else{
-        $invoice = Sale::orderBy('id','DESC')->first();
-        if ($invoice == null) {
-    		$firstReg = 0;
-    		$invoiceID = $firstReg+1;
-    		if ($invoiceID < 10) {
-    			$id_no = '000'.$invoiceID;
-    		}elseif ($invoiceID < 100) {
-    			$id_no = '00'.$invoiceID;
-    		}elseif ($invoiceID < 1000) {
-    			$id_no = '0'.$invoiceID;
-    		}
-    	}else{
-        $invoice = Sale::orderBy('id','DESC')->first()->id;
-     	$invoiceID = $invoice+1;
-     	if ($invoiceID < 10) {
-    			$id_no = '000'.$invoiceID;
-    		}elseif ($invoiceID < 100) {
-    			$id_no = '00'.$invoiceID;
-    		}elseif ($invoiceID < 1000) {
-    			$id_no = '0'.$invoiceID;
-    		}
+            $invoice = Sale::orderBy('id','DESC')->first();
+            if ($invoice == null) {
+                $firstReg = 0;
+                $invoiceID = $firstReg+1;
+                if ($invoiceID < 10) {
+                    $id_no = '00'.$invoiceID;
+                }elseif ($invoiceID < 100) {
+                    $id_no = '0'.$invoiceID;
+                }
+            }else{
+            $invoice = Sale::orderBy('id','DESC')->first()->id;
+             $invoiceID = $invoice+1;
+             if ($invoiceID < 10) {
+                    $id_no = '00'.$invoiceID;
+                }elseif ($invoiceID < 100) {
+                    $id_no = '0'.$invoiceID;
+                }
+    
+            }
+    
+            $date =  new Carbon($request->dob);
+            
+            $invoiceId ='HF'.$date->format('Y').$date->format('m').$id_no;
 
-    	}
-
-        $invoiceId = '2022'.$id_no;
         $sale->invoiceId = $invoiceId;
         $sale->cus_name = $request->cus_name;
         $sale->method_id = $request->method_id;
         $sale->contact = $request->contact;
         $sale->dob =$request->dob;
+        $sale->address =$request->address;
     }
         $product = Product::where('products.product_name','LIKE','%'.$request->product_name.'%')
                     ->first();
@@ -132,12 +145,39 @@ class SaleController extends Controller
                 'cus_name'     => $request->cus_name,
                 'contact'      => $request->contact,
                 'method_id'    => $request->method_id,
-                'dob'          => $request->dob
+                'dob'          => $request->dob,
+                'address'      => $request->address
             ]);
 
         }
         return redirect(route('show_sale'));
+     }else{
+
+        $sale = new Sale();
+        $products= Category::where('categories.id','LIKE','%'.$request->cat_id.'%')
+            ->first();
+        $sale->invoiceId = $request->invoiceId;
+        $sale->cus_name = $request->cus_name;
+        $sale->method_id = $request->method_id;
+        $sale->contact = $request->contact;
+        $sale->dob =$request->dob;
+        $sale->address =$request->address;
+        $sale->product_name = $request->product_name;
+        $sale->cat_name     = $products->cat_name;
+        $sale->cost         = $request->cost;
+        $sale->SKU          = $request->SKU;
+        $sale->sale         = $request->sale;
+        $sale->pro_quantity = $request->pro_quantity;
+        $sale->profit       = ($request->sale * $request->pro_quantity) - ($request->cost * $request->pro_quantity)  ;
+        $sale->total        = $request->sale * $request->pro_quantity ;
+        $sale->save();
+        return redirect(route('sale.index'));
+     }
+        
     }
+
+    
+    
 
     /**
      * Display the specified resource.
@@ -145,6 +185,8 @@ class SaleController extends Controller
      * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
+
+    /* Product Sale Invoice */
     public function invoice(Request $request){
         if(Session::has("invoiceId")){
             Session::forget('invoiceId','cus_name','contact','method_id','dob');
@@ -155,9 +197,19 @@ class SaleController extends Controller
                     ->first();
         $products = Sale::where('sales.invoiceId','LIKE','%'.$request->invoiceId.'%')
                     ->get();
-        $pdf = Pdf::loadView('sales.invoice', compact('product','products'));
+        $path = base_path('Capture.png');
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $pic ='data:image/'.$type . ';base64,' .base64_encode($data); 
+        $pdf = Pdf::setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true
+        ])->loadView('sales.invoice', compact('product','products','pic'));
+        //$pdf = Pdf::loadView('sales.invoice', compact('product','products'));
         return $pdf->download('invoice.pdf');
     }
+
+    /* Search Sale by date */
     public function reports(Request $request)
     {
         $products =Sale::whereBetween('dob',[$request->fdob, $request->ldob])
@@ -172,6 +224,7 @@ class SaleController extends Controller
         return view('reports.product_bydate',compact('products','profit'));
     }
     
+    /*Search Sale by date pdf */
     public function product_report(Request $request)
     {
         $products =Sale::whereBetween('dob',[session('fdob'), session('ldob')])

@@ -1,12 +1,15 @@
-
-<html>
-	<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Invoice</title>
-		<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Invoice</title>
+<style>
 			/* reset */
 
 *
+
 {
 	border: 0;
 	box-sizing: content-box;
@@ -23,11 +26,18 @@
 	vertical-align: top;
 }
 
+body{
+	page-break-inside: avoid !important;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 4px 0 4px 0;
+}
+
 /* content editable */
 
 *[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
 
-span[contenteditable] { display:block; }
+span[contenteditable] { display: block; }
 
 address{
 	content: center;
@@ -67,9 +77,7 @@ td { border-color: #DDD; }
 html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
 html { background: #999; cursor: default; }
 
-body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in; page-break-inside: avoid !important;
-    
-    overflow: hidden;}
+body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in; }
 body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
 
 /* header */
@@ -114,6 +122,8 @@ table.meta:after, table.meta2:after, table.balance:after { clear: both; content:
 	padding-right: 25px;
     text-align: justify;
 }
+
+
 /* table meta */
 
 table.meta th { width: 30%; }
@@ -155,8 +165,9 @@ aside h1 { border-color: #999; border-bottom-style: solid; }
 	.add, .cut { display: none; }
 }
 
-@page { margin: 0; }
-		</style>
+@page { size: auto; size: A4 portrait;  }
+
+</style>
 
 	</head>
 	<body>
@@ -173,79 +184,79 @@ aside h1 { border-color: #999; border-bottom-style: solid; }
             <table class="meta">
 				<tr>
 					<th><span contenteditable>Name</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->client_name}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Fathers Name</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->fName}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Cell</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->contact}}</span></td>
 				</tr>
 			</table> 
             <table class="meta">
 				<tr>
 					<th><span contenteditable>Invoice #</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->invoiceID}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Date</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->dob}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>NID No</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->nid}}</span></td>
 				</tr>
 			</table>
             <table class="meta2">
 				<tr>
 					<th><span contenteditable>Address</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->address}}</span></td>
 				</tr>
 			</table>
             <table class="meta">
 				<tr>
 					<th><span contenteditable>Chasis No</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->chas_no}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Engine No</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->veh_no}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Model of Vehicle</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->bike_name}}</span></td>
 				</tr>
                 <tr>
 					<th><span contenteditable>Year of Manufacture</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->manu}}</span></td>
 				</tr>
                 <tr>
 					<th><span contenteditable>No of Cylinder With CC</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->cc}}</span></td>
 				</tr>
 			</table>
             <table class="meta">
 				<tr>
 					<th><span contenteditable>Seating Capacity</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->seat_cap}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Brake</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->brake}}</span></td>
 				</tr>
                 <tr>
 					<th><span contenteditable>Tyre Size</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->tyre}}</span></td>
 				</tr>
                 <tr>
 					<th><span contenteditable>Color</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->color}}</span></td>
 				</tr>
                 <tr>
 					<th><span contenteditable>Weight</span></th>
-					<td><span contenteditable></span></td>
+					<td><span contenteditable>{{$bike->weight}}</span></td>
 				</tr>
 			</table>
 			<table class="inventory">
@@ -261,12 +272,12 @@ aside h1 { border-color: #999; border-bottom-style: solid; }
 				</thead>
 				<tbody>
 					<tr>
-						<td><span contenteditable></span></td>
-						<td><span contenteditable></span></td>
-						<td><span contenteditable></span></td>
-						<td><span contenteditable></span></td>
-						<td><span></span></td>
-						<td><span ></span></td>
+						<td><span contenteditable>{{$bike->brand}}</span></td>
+						<td><span contenteditable>{{$bike->bike_name}}</span></td>
+						<td><span contenteditable>{{$bike->color}}</span></td>
+						<td><span contenteditable>{{$bike->bsquantity}}</span></td>
+						<td><span>{{$bike->sale_price}}</span></td>
+						<td><span >{{$bike->total}}</span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -293,9 +304,5 @@ aside h1 { border-color: #999; border-bottom-style: solid; }
                 </div>
             </div>
 		</aside>
-
-                
-        <a href="{{route('pdf',$products->product_name)}}" class="btn btn-success float-right btn-sm">Download</a>
-				  
-    </body>
+	</body>
 </html>

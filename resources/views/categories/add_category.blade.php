@@ -1,5 +1,5 @@
 @extends('layout.master')
-
+@section('title', 'Category')
 @section('content')
 
 <form id="myForm" method="POST" id="myForm" action="{{route('category.store')}}">

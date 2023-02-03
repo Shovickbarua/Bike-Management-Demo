@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@yield('title','POST')</title>
+  <title>@yield('title','Dashboard')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -152,6 +152,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Sale List</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('add_old_sale')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Old Sale</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -202,6 +208,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{route('bike_sale.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bike Sale List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('add_old_bike_sale')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Old Bike Sale</p>
                 </a>
               </li>
             </ul>

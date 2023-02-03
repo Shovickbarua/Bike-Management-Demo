@@ -46,9 +46,19 @@ class BikeController extends Controller
              $bike->image = $name;
          }
         $bike->bike_name = $request->bike_name;
+        $bike->brand = $request->brand;
         $bike->bquantity = $request->bquantity;
         $bike->bcost = $request->bcost;
+        $bike->engine_no =$request->engine_no;
         $bike->dob =$request->dob;
+        $bike->chas_no =$request->chas_no;
+        $bike->m_veh =$request->m_veh;
+        $bike->manu =$request->manu;
+        $bike->cc =$request->cc;
+        $bike->seat_cap =$request->seat_cap;
+        $bike->brake =$request->brake;
+        $bike->tyre =$request->tyre;
+        $bike->weight =$request->weight;
         $bike->save();
 
         return redirect(route('bike.index'));
@@ -71,9 +81,10 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         $bike = Bike::find($id);
+        
         return view('bikes.bike_edit',compact('bike'));
     }
 
@@ -84,9 +95,32 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bike $bike)
+    public function update(Request $request, $id)
     {
-        //
+        $bike = Bike::find($id);
+        if($request->has('image')){
+            // dd($request);
+             $image = $request->file('image');
+             $name = time().uniqid().'.'.$image->extension();
+             $image->move('storage/app/products',$name);
+             $bike->image = $name;
+         }
+         $bike->bike_name = $request->bike_name;
+         $bike->brand = $request->brand;
+         $bike->bquantity = $request->bquantity;
+         $bike->bcost = $request->bcost;
+         $bike->engine_no =$request->engine_no;
+         $bike->dob =$request->dob;
+         $bike->chas_no =$request->chas_no;
+         $bike->m_veh =$request->m_veh;
+         $bike->manu =$request->manu;
+         $bike->cc =$request->cc;
+         $bike->seat_cap =$request->seat_cap;
+         $bike->brake =$request->brake;
+         $bike->tyre =$request->tyre;
+         $bike->weight =$request->weight;
+        $bike->save();
+        return redirect(route('bike.index'));
     }
 
     /**

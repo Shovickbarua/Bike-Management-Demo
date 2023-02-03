@@ -19,6 +19,7 @@ class CreateSalesTable extends Migration
             $table->string("cus_name");
             $table->string("product_name");
             $table->string("cat_name");
+            $table->string("address");
             $table->string("cost");
             $table->string("SKU");
             $table->string("sale");

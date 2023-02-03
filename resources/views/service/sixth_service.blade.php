@@ -1,5 +1,5 @@
 @extends('layout.master')
-
+@section('title', 'Sixth Service')
 @section('content')
 
 <div class="row">

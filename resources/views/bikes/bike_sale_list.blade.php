@@ -1,5 +1,5 @@
 @extends('layout.master')
-
+@section('title', 'Bike Sale')
 @section('content')
 
 <div class="row">
@@ -16,7 +16,7 @@
                 <th width="7%">Serial</th>
                 <th>Invoice ID</th>
                 <th>Client Name</th>
-                <th>Bike Name</th>
+                <th>Model</th>
                 <th>Quantity</th>
                 <th>Date</th>
                 <th>Profit</th>
@@ -37,13 +37,12 @@
 									<td>{{$bike->total}}</td>
 									<td>
 									<div class="d-flex">
-										<a href="{{route('bikeinvoice', $bike->invoiceId)}}" class="btn btn-danger btn-xs"><i class="fa fa-file-pdf"></i></a>
-										<a href="{{route('bike_sale.edit', $bike->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+										<a href="{{route('bikeinvoice', $bike->invoiceId)}}" class="btn btn-light btn-xs"><i class="fa fa-file-pdf"></i></a>
 
 										<form action="{{route('bike_sale.destroy',$bike->id)}}" method="POST">
 										@method('DELETE')    
 										@csrf
-										<button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
+										<button type="submit" class="btn btn-light btn-xs sharp"><i class="fa fa-trash"></i></button>
 										</form>
 									</div>
 									</td>

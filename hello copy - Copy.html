@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Invoice</title>
+	<title>Bike Invoice</title>
 <style>
 .wrapper{
 	width:724px;
@@ -37,12 +37,14 @@ img{
 .container2{
 	width: 720px;
     height: 170px;
+
 }
 .container3{
 	width: 720px;
+   
 }
 .wd{
-	width:52px;
+	width:10px;
 }
 .border{
 	border:1px solid black;
@@ -61,7 +63,7 @@ img{
 </head>
 <body>
 	<div class="wrapper">
-		<h3 align="center">Sale Invoice</h3>
+		<h3 align="center">Product Sale Invoice</h3>
 			<table class="container3">
 				<td>
 					<div class="l-height">
@@ -72,9 +74,8 @@ img{
 						+88 01918 397 597<br>
 					</div>
 				</td>
-				<td><img src="<?php echo $pic ?>" /> </td>
+				<td><img src="Capture.png" /></td>
 			</table>
-			<p></p>
 		<table class="head" >
 			<th>Invoice:</th>
 			<td style="width: 510px;">{{$product->invoiceId}}</td>
@@ -102,16 +103,16 @@ img{
 				<th class="border">Unit Price</th>
 				<th class="border">Amount</th>
 			</tr>
-			@foreach($products as $product)
 			<tr>
+			@foreach($products as $product)
 				<td align="center" class="border wd">{{$loop->iteration}}</td>
 				<td align="center" class="border">{{$product->product_name}}</td>
 				<td align="center" class="border">{{$product->cat_name}}</td>
 				<td align="center" class="border wd">{{$product->pro_quantity}}</td>
 				<td align="center" class="border">{{$product->sale}}</td>
 				<td align="center" class="border">{{$product->total}}</td>
-			</tr>
 			@endforeach
+			</tr>
 			<tr>
 				<th colspan="5" class="border">Total</th>
 				<td align="center" class="border">{{$products->sum('total')}}</td>
@@ -126,7 +127,7 @@ img{
 			</tr>
 		</table>
 		<p></p>
-		
+		<p></p>
 		<table class="border2 container2">
 			<tr>
 				<td>Customer's Signature</td>

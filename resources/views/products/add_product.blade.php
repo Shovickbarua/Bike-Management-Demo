@@ -1,5 +1,5 @@
 @extends('layout.master')
-
+@section('title', 'Product')
 @section('content')
 
 <form id="myForm" method="POST" id="myForm" action="{{route('product.store')}}" enctype="multipart/form-data">
