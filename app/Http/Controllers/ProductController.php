@@ -35,6 +35,14 @@ class ProductController extends Controller
                 ->get();
         return view('products.product_list',compact('products'));
     }
+    //Product Stock List
+    public function report()
+    {
+        $products= DB::table('products')
+                ->join('categories','products.cat_id','=','categories.id')
+                ->get();
+        return view('products.product_stock_list',compact('products'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -57,8 +65,7 @@ class ProductController extends Controller
     {
         $request->validate(
             [
-                'product_name'  => 'required',
-                'image'     => 'required|mimes:jpg,jpeg,png'
+                'product_name'  => 'required'
             ],
         );
 
@@ -67,7 +74,7 @@ class ProductController extends Controller
             // dd($request);
              $image = $request->file('image');
              $name = time().uniqid().'.'.$image->extension();
-             $image->move('storage/app/products',$name);
+             $image->move(public_path('products'),$name);
              $product->image = $name;
          }
         $product->product_name = $request->product_name;
@@ -105,19 +112,6 @@ class ProductController extends Controller
                 ->join('categories','products.cat_id','=','categories.id')
                 ->where('products.id','LIKE','%'.$request->id.'%')
                 ->first();
-               /* $image = $products->image;
-                $imageData = base64_encode(file_get_contents('app/products/'.$image));
-                $srcs = 'data:image/' . mime_content_type($image). ';base64,' .$imageData;*/
-        /*$path = base_path('logo-social.png');
-        $type = pathinfo($path, PATHINFO_EXTENSION);
-        $data = file_get_contents($path);
-        $pic ='data:image/'.$type . ';base64,' .base64_encode($data); 
-        $pdf = Pdf::setOptions([
-            'isHtml5ParserEnabled' => true,
-            'isRemoteEnabled' => true
-        ])->loadView('products.show_product', compact('products','pic'))->setPaper('a4', 'portrait'); */
-        //$PDFOptions = ['enable_remote' => true, 'chroot' => Storage::url('app/products/'. $products->image)];
-        //$pdf = Pdf::setOptions($PDFOptions)->loadView('products.show_product', compact('products'));
         $pdf = Pdf::loadView('products.show_product', compact('products'));
         return $pdf->download('product.pdf');
     }
@@ -146,10 +140,10 @@ class ProductController extends Controller
         $product = Product::find($id);
         if($request->has('image')){
             // dd($request);
-             $image = $request->file('image');
-             $name = time().uniqid().'.'.$image->extension();
-             $image->move('storage/app/products',$name);
-             $product->image = $name;
+            $image = $request->file('image');
+            $name = time().uniqid().'.'.$image->extension();
+            $request->image->move(public_path('products'), $name);
+            $product->image = $name;
          }
         $product->product_name = $request->product_name;
         $product->SKU = $request->SKU;

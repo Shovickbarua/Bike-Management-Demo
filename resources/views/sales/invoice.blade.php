@@ -47,6 +47,7 @@ img{
 .border{
 	border:1px solid black;
 	border-collapse:collapse;
+	padding-left: 6px;
 
 }
 .border1{
@@ -83,13 +84,13 @@ img{
 		</table>
 		<table class="border container">
 			<tr>
-				<th class="border th-width">Name</th>
+				<th class="border th-width" style="text-align:left;">Name</th>
 				<td class="border">{{$product->cus_name}}</td>
-				<th class="border th-width">Cell</th>
+				<th class="border th-width" style="text-align:left;">Cell</th>
 				<td class="border">{{$product->contact}}</td>
 			</tr>
 			<tr>
-				<th class="border">Address</th>
+				<th class="border" style="text-align:left;">Address</th>
 				<td colspan="3" class="border">{{$product->address}}</td>
 			</tr>
 		</table>
@@ -117,15 +118,10 @@ img{
 				<td align="center" class="border">{{$products->sum('total')}}</td>
 			</tr>
 		</table>
-		<h4 >Remarks: Warranty Card/ Tools set provided; <span style="color:red">Bike didn’t refundable.</span> </h4>
-		<h4>Received with thanks the above mentioned vehicle is with perfect condition along with tools and accessories.</h4>
-		<table class=" container1">
-			<tr>
-				<td>I am aware of warranty and service police, no complaints when buying bikes or scooters. Brought the right and problem-free bike or scooter from Highway Fighters.</td>
-				<td>The rider is aware of the warranty and service police, he purchased the right and problem–free bike or scooter from Highway Fighters.</td>
-			</tr>
-		</table>
 		<p></p>
+		<p></p>
+		<p></p>
+
 		
 		<table class="border2 container2">
 			<tr>

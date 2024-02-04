@@ -26,8 +26,10 @@
 	line-height: 140%;
 }
 img{
-	float: right;
-	height: 55px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 .container1{
 	width: 720px;
@@ -63,10 +65,20 @@ img{
 </head>
 <body>
 	<div class="wrapper">
+<<<<<<< HEAD
 		<h3 align="center">Product Sale Invoice</h3>
 			<table class="container3">
 				<td>
 					<div class="l-height">
+=======
+		<h3 align="center">Sale Invoice</h3>
+			<table class="container3">
+				<td><img src="Capture.png" /></td>
+			</table>
+			<table class="container3">
+				<td>
+					<div class="l-height" align="center">
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 						Highway Fighters<br>
 						215/318 HASINA MANSION,<br>
 						CDA Avenue (Beside Chittagong Education Board) Muradpur, Chittagong<br>
@@ -74,7 +86,10 @@ img{
 						+88 01918 397 597<br>
 					</div>
 				</td>
+<<<<<<< HEAD
 				<td><img src="Capture.png" /></td>
+=======
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 			</table>
 		<table class="head" >
 			<th>Invoice:</th>
@@ -114,7 +129,13 @@ img{
 			@endforeach
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<th colspan="5" class="border">Total</th>
+=======
+				<th colspan="" class="border">Total</th>
+				<td align="center" class="border">{{$products->sum('total')}}</td>
+				<th colspan="" class="border">Total</th>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 				<td align="center" class="border">{{$products->sum('total')}}</td>
 			</tr>
 		</table>

@@ -15,13 +15,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index.php"><b>Bike</b>Management</a>
+    <a href="#"><b>Highway Fighters</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Log in to start your session</p>
-
       <form action="{{route('signin')}}" method="post">
       @csrf
         <div class="input-group mb-3">
@@ -42,12 +41,6 @@
         </div>
         <div class="row">
           <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
@@ -56,12 +49,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-     
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -76,11 +63,6 @@
 <script src="{{asset('/')}}dist/js/adminlte.min.js"></script>
 
 <!-- REQUIRED SCRIPTS -->
-<style>
-  .notifyjs-corner{
-    z-index:10000 !important;
-  }
-</style>
 <!--Notify.js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous"></script>
 

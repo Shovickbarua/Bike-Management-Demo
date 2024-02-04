@@ -14,42 +14,42 @@ class BikeServiceController extends Controller
      */
     public function index()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','first')->get();
         return view('service.first_service',compact('bikeservice')); 
     }
     public function second()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','second')->get();
         return view('service.second_service',compact('bikeservice')); 
     }
     public function third()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','third')->get();
         return view('service.third_service',compact('bikeservice'));  
     }
     public function fourth()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','fourth')->get();
         return view('service.fourth_service',compact('bikeservice'));  
     }
     public function fifth()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','fifth')->get();
         return view('service.fifth_service',compact('bikeservice'));  
     }
     public function sixth()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','sixth')->get();
         return view('service.sixth_service',compact('bikeservice')); 
     }
     public function seventh()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','seventh')->get();
         return view('service.seventh_service',compact('bikeservice'));  
     }
     public function eighth()
     {
-        $bikeservice = BikeService::all();
+        $bikeservice = BikeService::where('service_type','eighth')->get();
         return view('service.eighth_service',compact('bikeservice')); 
     }
 
@@ -104,9 +104,13 @@ class BikeServiceController extends Controller
      * @param  \App\Models\BikeService  $bikeService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BikeService $bikeService)
+    public function update(Request $request,$id)
     {
-        //
+        $service = BikeService::find($id);
+        $service->service_type = $request->service_type;
+        $service->save();
+
+        return redirect(route('dash'));
     }
 
     /**

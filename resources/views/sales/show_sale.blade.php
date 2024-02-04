@@ -14,7 +14,11 @@
                 <th>Customer Name</th>
                 <th>Contact</th>
                 <th>Date</th>
+<<<<<<< HEAD
                 <th width="">Action</th>
+=======
+               {{-- <th width="">Action</th> --}}
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 						  </tr>
 						  </thead>
 						  <tbody>
@@ -23,7 +27,11 @@
 									<td>{{$sales->cus_name}}</td>
 									<td>{{$sales->contact}}</td>
 									<td>{{$sales->dob}}</td>
+<<<<<<< HEAD
 									<td>
+=======
+									{{--<td>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 									<div class="d-flex">
 										<a href="{{route('sale.edit', $sales->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
 
@@ -33,7 +41,11 @@
 										<button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
 										</form>
 									</div>
+<<<<<<< HEAD
 									</td>
+=======
+									</td>--}}
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 								</tr>
 						  </tbody>
 						</table>
@@ -46,6 +58,10 @@
 				<div class="card">
 				  <div class="card-header">
 					<a href="{{route('indexsale')}}" class="btn btn-success float-right btn-sm">Add More</a>
+<<<<<<< HEAD
+=======
+					<a href="{{route('pos_invoice',$sales->invoiceId)}}" class="btn btn-success float-right btn-sm mr-2">POS Invoice</a>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 					<a href="{{route('invoice', $sales->invoiceId)}}" class="btn btn-success float-right btn-sm mr-2">Invoice</a>
 				  </div>
 					<!-- /.card-header -->
@@ -58,7 +74,11 @@
                 <th>SKU</th>
                 <th>Quantity</th>
                 <th>Total</th>
+<<<<<<< HEAD
                 <th width="">Action</th>
+=======
+             {{---  <th width="">Action</th> ---}} 
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 						  </tr>
 						  </thead>
 						  <tbody>
@@ -69,7 +89,11 @@
 									<td>{{$sl->SKU}}</td>
 									<td>{{$sl->pro_quantity}}</td>
 									<td>{{$sl->total}}</td>
+<<<<<<< HEAD
 									<td>
+=======
+							{{---	<td>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 									<div class="d-flex">
 										<a href="{{route('invoice', $sl->invoiceId)}}" class="btn btn-danger btn-xs"><i class="fa fa-file-pdf"></i></a>
 										<a href="{{route('sale.edit', $sl->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
@@ -80,7 +104,11 @@
 										<button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
 										</form>
 									</div>
+<<<<<<< HEAD
 									</td>
+=======
+									</td> ---}}
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 								</tr>
 							@endforeach
 						  </tbody>

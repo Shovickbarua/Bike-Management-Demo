@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bike Invoice</title>
+<style>
+.wrapper{
+	background-image: url("bg.jpg");
+	background-size: cover;
+	background-color: #cccccc;
+ 	background-repeat: no-repeat;
+    width: 960px;
+	height: 1302px;
+	margin:auto;
+}
+.head{
+	height: 40px;
+	margin: auto;
+
+}
+.container{
+	width:720px;
+	height:80px;
+	margin: auto;
+}
+.th-width{
+	width:141px;
+}
+.l-height{
+	line-height: 140%;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.container1{
+	width: 720px;
+    height: 130px;
+	margin: auto;
+}
+.container2{
+	width: 720px;
+    height: 170px;
+	margin: auto;
+
+}
+.container3{
+	width: 720px;
+   
+}
+.container4{
+	margin: auto;
+	width: 725px;
+
+}
+.wd{
+	width:10px;
+}
+.border{
+	border:1px solid black;
+	border-collapse:collapse;
+
+}
+.border1{
+	border-collapse:collapse;
+	margin: auto;
+}
+.border2{
+	text-align: center;
+}
+
+h4{
+	margin: auto;
+}
+
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h3 align="center" style="padding-top: 184px;">Sale Invoice</h3>
+		<table class="head" >
+			<th>Invoice:</th>
+			<td style="width: 483px;">{{$product->invoiceId}}</td>
+			<th>Date:</th>
+			<td>{{$product->dob}}</td>
+		</table>
+		<table class="border container">
+			<tr>
+				<th class="border th-width">Name</th>
+				<td class="border">{{$product->cus_name}}</td>
+				<th class="border th-width">Cell</th>
+				<td class="border">{{$product->contact}}</td>
+			</tr>
+			<tr>
+				<th class="border">Address</th>
+				<td colspan="3" class="border">{{$product->address}}</td>
+			</tr>
+		</table>
+		<table class="border container1">
+			<tr>
+				<th class="border wd">SL.</th>
+				<th class="border">Product Name</th>
+				<th class="border">Category</th>
+				<th class="border wd">Qty</th>
+				<th class="border">Unit Price</th>
+				<th class="border">Amount</th>
+			</tr>
+			<tr>
+			@foreach($products as $product)
+				<td align="center" class="border wd">{{$loop->iteration}}</td>
+				<td align="center" class="border">{{$product->product_name}}</td>
+				<td align="center" class="border">{{$product->cat_name}}</td>
+				<td align="center" class="border wd">{{$product->pro_quantity}}</td>
+				<td align="center" class="border">{{$product->sale}}</td>
+				<td align="center" class="border">{{$product->total}}</td>
+			@endforeach
+			</tr>
+		</table>
+		<div class="container4">
+			<p align="end"><strong style="padding-right: 10px;">Bike Price</strong>{{$product->sale}}</p>
+			<p align="end" style="text-decoration: overline;"><strong style="padding-right: 10px; ">Registration</strong>{{$product->sale}</p>
+			<p align="end" style="text-decoration: overline;"><strong style="padding-right: 22px;">Amount</strong>{{$product->sale}</p>
+			<h4 >Remarks: Warranty Card/ Tools set provided; <span style="color:red">Bike didn’t refundable.</span> </h4>
+			<h4>Received with thanks the above mentioned vehicle is with perfect condition along with tools and accessories.</h4>
+		</div>
+		
+		<table class=" container1">
+			<tr>
+				<td>I am aware of warranty and service police, no complaints when buying bikes or scooters. Brought the right and problem-free bike or scooter from Highway Fighters.</td>
+				<td>The rider is aware of the warranty and service police, he purchased the right and problem–free bike or scooter from Highway Fighters.</td>
+			</tr>
+		</table>
+		<p></p>
+		<p></p>
+		<table class="border2 container2">
+			<tr>
+				<td>Customer's Signature</td>
+				<td>Highway Fighters</td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>

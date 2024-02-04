@@ -18,6 +18,7 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->string("ex_name");
             $table->string("amount");
+            $table->date("dob");
             $table->timestamps();
         });
     }

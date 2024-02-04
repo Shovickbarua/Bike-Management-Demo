@@ -30,16 +30,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
+<<<<<<< HEAD
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+=======
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
       <!-- Navbar Search -->
       <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -66,15 +70,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
       
+=======
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
       <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
+=======
+      <a href="{{route('logOut')}}" class="nav-link"><i class="fas fa-sign-out-alt"></i>
+      </a>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
       </li>
     </ul>
   </nav>
@@ -83,9 +94,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
+<<<<<<< HEAD
     <a href="index3.html" class="brand-link">
       <img src="{{asset('/')}}dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
+=======
+    <a href="#" class="brand-link">
+      <img src="{{asset('/')}}dist/img/Capture.png" alt="HF Logo">
+      <span class="brand-text font-weight-light"></span>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
     </a>
 
     <!-- Sidebar -->
@@ -125,6 +142,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+<<<<<<< HEAD
+=======
+          @if(session('name')  == 'superadmin')
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Role
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('role.index')}}" class="nav-link" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Roles</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endif
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 		    <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -204,12 +243,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Bike List</p>
                 </a>
               </li>
+<<<<<<< HEAD
+=======
+              @if(session('name')  == 'superadmin')
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
               <li class="nav-item">
                 <a href="{{route('bike_sale.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bike Sale List</p>
                 </a>
               </li>
+<<<<<<< HEAD
+=======
+              @endif
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
               <li class="nav-item">
                 <a href="{{route('add_old_bike_sale')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -273,10 +320,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+<<<<<<< HEAD
+=======
+              @if(session('name')  == 'superadmin')
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
                 <a href="{{route('reports')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sale Reports</p>
                 </a>
+<<<<<<< HEAD
+=======
+                <a href="{{route('bike_reports')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bike Sale Reports</p>
+                </a>
+                <a href="{{route('stock_reports')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Product Stock Reports</p>
+                </a>
+                <a href="{{route('bike_stocks')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bike Stock Reports</p>
+                </a>
+                @endif
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
               </li>
             </ul>
           </li>
@@ -284,7 +351,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
+<<<<<<< HEAD
                 Expenses
+=======
+                Income & Expenses
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -298,6 +369,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="far fa-circle nav-icon"></i>
                   <p>Expense List</p>
                 </a>
+<<<<<<< HEAD
+=======
+                <a href="{{route('ex_reports')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Expense Report</p>
+                </a>
+                <a href="{{route('income.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Income</p>
+                </a>
+                <a href="{{route('income.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Income List</p>
+                </a>
+                <a href="{{route('in_reports')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Income Report</p>
+                </a>
+                <a href="{{route('insert_daily')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daily Income</p>
+                </a>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
               </li>
             </ul>
           </li>
@@ -407,6 +501,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
 });
 </script>
+<<<<<<< HEAD
 <script>
   var barcode ='';
   var interval;
@@ -428,6 +523,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       document.querySelector('#last_barcode').innerHTML = scanned_barcode; 
   }
 </script> 
+=======
+
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 @yield('scripts')
 </body>
 </html>

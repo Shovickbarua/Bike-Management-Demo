@@ -19,10 +19,11 @@
                 <th>Category</th>
                 <th>SKU</th>
                 <th>Quantity</th>
-                <th>Cost Price</th>
                 <th>Date</th>
                 <th>Image</th>
+				@if(session('name')  == 'superadmin')
                 <th width="">Action</th>
+				@endif
                 <th width=""></th>
 						  </tr>
 						  </thead>
@@ -34,12 +35,11 @@
 									<td>{{$product->cat_name}}</td>
 									<td>{{$product->SKU}}</td>
 									<td>{{$product->quantity}}</td>
-									<td>{{$product->cost}}</td>
 									<td>{{$product->dob}}</td>
-									<td><img src="{{Storage::url('app/products/'. $product->image)}} " style="height:150px; width:150px;"/></td>
+									<td><img src="{{asset('/products/'.$product->image)}}" style="height:150px; width:150px;"/></td>
+									@if(session('name')  == 'superadmin')
 									<td>
 									<div class="d-flex">
-										<a href="{{route('product.show', $product->id)}}" class="btn btn-danger btn-xs"><i class="fa fa-file-pdf"></i></a>
 										<a href="{{route('product.edit', $product->id)}}" class="btn shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
 
 										<form action="{{route('product.destroy',$product->id)}}" method="POST">
@@ -49,6 +49,7 @@
 										</form>
 									</div>
 									</td>
+									@endif
 									<td><a href="{{route('add_sale', $product->product_name)}}" class="btn btn-primary btn-md">Add Sale</a></td>
 								</tr>
 							@endforeach

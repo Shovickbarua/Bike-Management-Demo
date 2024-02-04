@@ -20,6 +20,7 @@ class CreateBikesTable extends Migration
             $table->string("bquantity");
             $table->date("dob");
             $table->string("bcost");
+            $table->string("color");
             $table->string("engine_no");
             $table->string("chas_no");
             $table->string("m_veh");
@@ -27,7 +28,8 @@ class CreateBikesTable extends Migration
             $table->string("cc");
             $table->string("seat_cap");
             $table->string("brake");
-            $table->string("tyre");
+            $table->string("ftyre");
+            $table->string("rtyre");
             $table->string("weight");
             $table->string("image");
             $table->timestamps();

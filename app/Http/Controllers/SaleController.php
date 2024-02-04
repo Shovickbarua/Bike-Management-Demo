@@ -6,6 +6,7 @@ use App\Models\Sale;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\methods;
+use App\Models\Income;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -92,24 +93,24 @@ class SaleController extends Controller
                 $firstReg = 0;
                 $invoiceID = $firstReg+1;
                 if ($invoiceID < 10) {
-                    $id_no = '00'.$invoiceID;
-                }elseif ($invoiceID < 100) {
                     $id_no = '0'.$invoiceID;
+                }elseif ($invoiceID < 100) {
+                    $id_no = $invoiceID;
                 }
             }else{
             $invoice = Sale::orderBy('id','DESC')->first()->id;
              $invoiceID = $invoice+1;
              if ($invoiceID < 10) {
-                    $id_no = '00'.$invoiceID;
-                }elseif ($invoiceID < 100) {
                     $id_no = '0'.$invoiceID;
+                }elseif ($invoiceID < 100) {
+                    $id_no = $invoiceID;
                 }
     
             }
     
             $date =  new Carbon($request->dob);
             
-            $invoiceId ='HF'.$date->format('Y').$date->format('m').$id_no;
+            $invoiceId ='HF'.$date->format('Y').$id_no;
 
         $sale->invoiceId = $invoiceId;
         $sale->cus_name = $request->cus_name;
@@ -133,6 +134,20 @@ class SaleController extends Controller
         $sale->profit       = ($request->sale * $request->pro_quantity) - ($product->cost * $request->pro_quantity)  ;
         $sale->total        = $request->sale * $request->pro_quantity ;
         $sale->save();
+    if(Session::has('dob')){
+        $input = [
+            'in_name' => $request->product_name,
+            'dob' => session('dob'),
+            'amount' => $sale->total
+        ];
+    }else{
+        $input = [
+            'in_name' => $request->product_name,
+            'dob' => $request->dob,
+            'amount' => $sale->total
+        ];
+    }
+        $income = Income::create($input);
 
         $product->update([
             'quantity' => $product->quantity - $request->pro_quantity, // quantity of product from order
@@ -168,7 +183,7 @@ class SaleController extends Controller
         $sale->SKU          = $request->SKU;
         $sale->sale         = $request->sale;
         $sale->pro_quantity = $request->pro_quantity;
-        $sale->profit       = ($request->sale * $request->pro_quantity) - ($request->cost * $request->pro_quantity)  ;
+        $sale->profit       = ($request->sale * $request->pro_quantity) - ($request->cost * $request->pro_quantity) ;
         $sale->total        = $request->sale * $request->pro_quantity ;
         $sale->save();
         return redirect(route('sale.index'));
@@ -186,10 +201,24 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    /* Product Sale POS Invoice */
+    public function pos_invoice(Request $request){
+        if(Session::has("invoiceId")){
+            Session::forget('invoiceId','cus_name','contact','method_id','dob','fdob','ldob');
+        }else{
+
+        }
+        $product = Sale::where('sales.invoiceId','LIKE','%'.$request->invoiceId.'%')
+                    ->first();
+        $products = Sale::where('sales.invoiceId','LIKE','%'.$request->invoiceId.'%')
+                    ->get();
+        return view('sales.pos_invoice',compact('product','products'));
+        
+    }
     /* Product Sale Invoice */
     public function invoice(Request $request){
         if(Session::has("invoiceId")){
-            Session::forget('invoiceId','cus_name','contact','method_id','dob');
+            Session::forget('invoiceId','cus_name','contact','method_id','dob','fdob','ldob');
         }else{
 
         }
@@ -206,12 +235,17 @@ class SaleController extends Controller
             'isRemoteEnabled' => true
         ])->loadView('sales.invoice', compact('product','products','pic'));
         //$pdf = Pdf::loadView('sales.invoice', compact('product','products'));
-        return $pdf->download('invoice.pdf');
+        return $pdf->download($product->invoiceId.'.pdf');
     }
 
     /* Search Sale by date */
     public function reports(Request $request)
     {
+        if(Session::has("fdob")){
+            Session::forget('fdob','ldob');
+        }else{
+
+        }
         $products =Sale::whereBetween('dob',[$request->fdob, $request->ldob])
                     ->get();
         $profit  =Sale::whereBetween('dob',[$request->fdob, $request->ldob])
@@ -231,9 +265,15 @@ class SaleController extends Controller
                     ->get();
         $profit  =Sale::whereBetween('dob',[session('fdob'), session('ldob')])
                     ->sum('profit'); 
-        Session::forget('fdob','ldob');
-
-        $pdf = Pdf::loadView('reports.product_report', compact('products','profit'));
+        $path = base_path('Capture.png');
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $pic ='data:image/'.$type . ';base64,' .base64_encode($data); 
+        $pdf = Pdf::setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true
+        ])->loadView('reports.product_report', compact('products','profit','pic'));
+        //$pdf = Pdf::loadView('reports.product_report', compact('products','profit'));
         return $pdf->download('report.pdf');
     }
     public function show(Sale $sale)

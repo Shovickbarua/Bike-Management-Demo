@@ -21,6 +21,7 @@ class CreateBikeServicesTable extends Migration
             $table->string("address");
             $table->string("bike_name");
             $table->string("bsquantity");
+            $table->string("service_type");
             $table->date("first_service");
             $table->date("second_service");
             $table->date("third_service");
@@ -29,6 +30,14 @@ class CreateBikeServicesTable extends Migration
             $table->date("sixth_service");
             $table->date("seventh_service");
             $table->date("eighth_service");
+            $table->date("f_date");
+            $table->date("s_date");
+            $table->date("t_date");
+            $table->date("four_date");
+            $table->date("fifth_date");
+            $table->date("six_date");
+            $table->date("seven_date");
+            $table->date("eighth_date");
             $table->timestamps();
         });
     }

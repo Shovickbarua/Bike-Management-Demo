@@ -16,7 +16,7 @@
                 <th width="7%">Serial</th>
                 <th>Invoice ID</th>
                 <th>Client Name</th>
-                <th>Model</th>
+                <th>Model No</th>
                 <th>Quantity</th>
                 <th>Date</th>
                 <th>Profit</th>
@@ -37,6 +37,7 @@
 									<td>{{$bike->total}}</td>
 									<td>
 									<div class="d-flex">
+										<a href="{{route('saledetails', $bike->invoiceId)}}" class="btn btn-light btn-xs"><i class="fas fa-eye"></i></a>
 										<a href="{{route('bikeinvoice', $bike->invoiceId)}}" class="btn btn-light btn-xs"><i class="fa fa-file-pdf"></i></a>
 
 										<form action="{{route('bike_sale.destroy',$bike->id)}}" method="POST">

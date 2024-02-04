@@ -11,6 +11,13 @@
                     <input type="text" class="form-control" id="" placeholder="" name="cus_name" value="" >
                   </div>
                   <div class="form-group col-md-4">
+<<<<<<< HEAD
+=======
+                    <label for="name">Address<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="address" value="" >
+                  </div>
+                  <div class="form-group col-md-4">
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
                     <label for="name">Product Name</label>
                     <input type="text" class="form-control" id="" placeholder="" name="product_name" value="" >
                   </div>

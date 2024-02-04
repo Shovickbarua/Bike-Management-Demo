@@ -81,8 +81,12 @@
                     <input type="text" class="form-control" id="" placeholder="" name="brake" value="{{$bike->brake}}" readonly>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="name">Tyre Size<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="tyre" value="{{$bike->tyre}}" readonly>
+                    <label for="name">Fornt Tyre Size<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="ftyre" value="{{$bike->ftyre}}" readonly>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Rear Tyre Size<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="rtyre" value="{{$bike->rtyre}}" readonly>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Weight<font style="color:red">*</font></label>
@@ -94,19 +98,35 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Sale Price<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="sale_price" value="">
+                    <input type="text" class="form-control" title ="123456" pattern="[0-9]{1,20}" id="" placeholder="" name="sale_price" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Registration Fee<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="registration" value="">
+                    <input type="text" class="form-control" title ="123456" pattern="[0-9]{1,20}" id="" placeholder="" name="registration" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Bank Draft<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="bank_draft" value="">
+                    <input type="text" class="form-control" title ="123456" pattern="[0-9]{1,20}" id="" placeholder="" name="bank_draft" value="">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">BRTA<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="brta" value="">
+                    <input type="text" class="form-control" title ="123456" pattern="[0-9]{1,20}" id="" placeholder="" name="brta" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Customer Photo</label>
+                      <input type="file" class="form-control" id="image" name="cus_photo">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Bank Copy</label>
+                      <input type="file" class="form-control" id="image" name="b_copy">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Registration Slip</label>
+                      <input type="file" class="form-control" id="image" name="r_slip">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Tax Token</label>
+                      <input type="file" class="form-control" id="image" name="t_token">
                   </div>
                 <div class="form-group col-md-12">
                   <button type="submit" class="btn btn-primary btn-sm" name="pro_btn">Save</button>               

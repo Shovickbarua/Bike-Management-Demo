@@ -1,295 +1,206 @@
-
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Invoice</title>
-		<style>
-			/* reset */
-
-*
-{
-	border: 0;
-	box-sizing: content-box;
-	color: inherit;
-	font-family: inherit;
-	font-size: inherit;
-	font-style: inherit;
-	font-weight: inherit;
-	line-height: inherit;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	vertical-align: top;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bike Invoice</title>
+<style>
+	@font-face{
+            font-family: "SutonnyMJ";
+            src : url("SutonnyMJ Regular.ttf")
+        }
+.wrapper{
+	width:724px;
+	height:840px;
+	margin:0px auto;
 }
+.head{
+	height: 40px;
 
-/* content editable */
-
-*[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
-
-span[contenteditable] { display:block; }
-
-address{
-	content: center;
 }
-
+.container{
+	width:720px;
+	height:70px;
+}
+.th-width{
+	width:141px;
+}
+.l-height{
+	line-height: 140%;
+}
 img{
-	height: 82px;
+	float: right;
+	height: 70px;
 }
-.top{
-	margin-top: -62px;
-	margin-bottom: 12px;
+.container1{
+	width: 720px;
 }
-
-.float-container {
-	margin-top: 20px;
-	display: flex;
+.pad{
+	padding-right: 5px;
 }
-
-.float-child {
-    width: 50%;
+.container2{
+	width: 720px;
+    height: 170px;
 }
-/* heading */
-
-h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
-
-/* table */
-
-table { font-size: 75%; table-layout: fixed; width: 100%; }
-table { border-collapse: separate; border-spacing: 2px; }
-th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
-th, td { border-radius: 0.25em; border-style: solid; }
-th { background: #EEE; border-color: #BBB; }
-td { border-color: #DDD; }
-
-/* page */
-
-html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
-html { background: #999; cursor: default; }
-
-body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in; }
-body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
-
-/* header */
-
-header { margin: 0 0 3em; }
-header:after { clear: both; content: ""; display: table; }
-
-header h1 { background: #000; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
-header address { float: left; font-size: 75%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
-header address p { margin: 0 0 0.25em; }
-header span, header img { display: block; float: right; }
-header span { max-height: 25%; max-width: 60%; position: relative; }
-header img { max-height: 100%; max-width: 100%; }
-header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; width: 100%; }
-
-/* article */
-
-article, article address, table.meta, table.inventory, table.meta2 { margin: 0 0 3em; }
-article:after { clear: both; content: ""; display: table; }
-article h1 { clip: rect(0 0 0 0); position: absolute; }
-
-article address { float: left; font-size: 125%; font-weight: bold; }
-
-/* table meta & balance */
-
-table.meta { float: left; width: 50%; }
-table.meta2 { float: left; width: 100%;margin-top: -42px;}
-table.balance { float: right; width: 33%; }
-table.meta:after, table.meta2:after, table.balance:after { clear: both; content: ""; display: table; }
-
-/* Space */
-.st{
-	font: 15px/1 'Open Sans', sans-serif;
+.container3{
+	width: 720px;
 }
-.stt{
-	font: 17px/1 'Open Sans', sans-serif;
+.container4{
+	width: 720px;
+	text-align: justify;
+}
+.wd{
+	width:52px;
+}
+.border{
+	border:1px solid black;
+	border-collapse:collapse;
+	padding-left: 6px;
+
+}
+.border1{
+	border-collapse:collapse;
+	margin: auto;
+}
+.border2{
 	text-align: center;
-	margin-top: 82px;
 }
 
-.green{
-	padding-right: 25px;
-    text-align: justify;
-}
-/* table meta */
-
-table.meta th { width: 30%; }
-table.meta td { width: 30%; }
-
-table.meta2 th { width: 16%; }
-table.meta2 td { width: 52%; }
-
-
-/* table items */
-
-table.inventory { clear: both; width: 100%; }
-table.inventory th { font-weight: bold; text-align: center; }
-
-table.inventory td:nth-child(1) { width: 26%; }
-table.inventory td:nth-child(2) { width: 38%; }
-table.inventory td:nth-child(3) { text-align: right; width: 12%; }
-table.inventory td:nth-child(4) { text-align: right; width: 12%; }
-table.inventory td:nth-child(5) { text-align: right; width: 12%; }
-
-/* table balance */
-
-table.balance th, table.balance td { width: 50%; }
-table.balance td { text-align: right; }
-
-/* aside */
-
-aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
-aside h1 { border-color: #999; border-bottom-style: solid; }
-
-/* javascript */
-
-
-@media print {
-	* { -webkit-print-color-adjust: exact; }
-	html { background: none; padding: 0; }
-	body { box-shadow: none; margin: 0; }
-	span:empty { display: none; }
-	.add, .cut { display: none; }
-}
-
-@page { margin: 0; }
-		</style>
-
-	</head>
-	<body>
-		<header>
-			<h1>Invoice</h1>
-			<address contenteditable >
-				<p>Highway Fighters</p>
-				<p>101 E. Chapman Ave<br>Orange, CA 92866</p>
-				<p>(800) 555-1234</p>
-			</address>
-			<span><img src="<?php echo $pic ?>" /></span> 
-		</header>
-		<article>
-            <table class="meta">
-				<tr>
-					<th><span contenteditable>Name</span></th>
-					<td><span contenteditable>{{$bike->client_name}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Fathers Name</span></th>
-					<td><span contenteditable>{{$bike->fName}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Cell</span></th>
-					<td><span contenteditable>{{$bike->contact}}</span></td>
-				</tr>
-			</table> 
-            <table class="meta">
-				<tr>
-					<th><span contenteditable>Invoice #</span></th>
-					<td><span contenteditable>{{$bike->invoiceID}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Date</span></th>
-					<td><span contenteditable>{{$bike->dob}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>NID No</span></th>
-					<td><span contenteditable>{{$bike->nid}}</span></td>
-				</tr>
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h3 align="center">Bike Invoice</h3>
+			<table class="container3">
+				<td>
+					<div class="l-height">
+						Highway Fighters<br>
+						215/318 HASINA MANSION,<br>
+						CDA Avenue (Beside Chittagong Education Board) Muradpur, Chittagong<br>
+						+88 01614 62 69 42,
+						+88 01918 397 597<br>
+					</div>
+				</td>
+				<td><img src="<?php echo $pic ?>" /> </td>
 			</table>
-            <table class="meta2">
-				<tr>
-					<th><span contenteditable>Address</span></th>
-					<td><span contenteditable>{{$bike->address}}</span></td>
-				</tr>
-			</table>
-            <table class="meta">
-				<tr>
-					<th><span contenteditable>Chasis No</span></th>
-					<td><span contenteditable>{{$bike->chas_no}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Engine No</span></th>
-					<td><span contenteditable>{{$bike->veh_no}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Model of Vehicle</span></th>
-					<td><span contenteditable>{{$bike->bike_name}}</span></td>
-				</tr>
-                <tr>
-					<th><span contenteditable>Year of Manufacture</span></th>
-					<td><span contenteditable>{{$bike->manu}}</span></td>
-				</tr>
-                <tr>
-					<th><span contenteditable>No of Cylinder With CC</span></th>
-					<td><span contenteditable>{{$bike->cc}}</span></td>
-				</tr>
-			</table>
-            <table class="meta">
-				<tr>
-					<th><span contenteditable>Seating Capacity</span></th>
-					<td><span contenteditable>{{$bike->seat_cap}}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Brake</span></th>
-					<td><span contenteditable>{{$bike->brake}}</span></td>
-				</tr>
-                <tr>
-					<th><span contenteditable>Tyre Size</span></th>
-					<td><span contenteditable>{{$bike->tyre}}</span></td>
-				</tr>
-                <tr>
-					<th><span contenteditable>Color</span></th>
-					<td><span contenteditable>{{$bike->color}}</span></td>
-				</tr>
-                <tr>
-					<th><span contenteditable>Weight</span></th>
-					<td><span contenteditable>{{$bike->weight}}</span></td>
-				</tr>
-			</table>
-			<table class="inventory">
-				<thead>
-					<tr>
-						<th><span contenteditable>Brand</span></th>
-						<th><span contenteditable>Model No</span></th>
-						<th><span contenteditable>Color</span></th>
-						<th><span contenteditable>Quantity</span></th>
-						<th><span contenteditable>Unit Price</span></th>
-						<th><span contenteditable>Amount</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><span contenteditable>{{$bike->brand}}</span></td>
-						<td><span contenteditable>{{$bike->bike_name}}</span></td>
-						<td><span contenteditable>{{$bike->color}}</span></td>
-						<td><span contenteditable>{{$bike->bsquantity}}</span></td>
-						<td><span>{{$bike->sale_price}}</span></td>
-						<td><span >{{$bike->total}}</span></td>
-					</tr>
-				</tbody>
-			</table>
-		</article>
-		<aside>
-			<div class="st" contenteditable >
-				<p class="top">Remarks: Warranty Card/ Tools set provided; Sold Bike didn’t refundable.</p>
-				<p>Received with thanks the above mentioned vehicle is with perfect condition along with tools and accessories.</p>
-			</div>
-            <div class="float-container st">
-                <div class="float-child">
-                  <div class="green">I am aware of warranty and service police, no complaints when buying bikes or scooters. Brought the right and problem-free bike or scooter from Highway Fighters.</div>
-                </div>
-                <div class="float-child">
-                  <div class="green">The rider is aware of the warranty and service police, he purchased the right and problem–free bike or scooter from Highway Fighters.</div>
-                </div>
-            </div>
-			<div class="float-container stt">
-                <div class="float-child">
-                  <div class="">Customer's Signature</div>
-                </div>
-                <div class="float-child">
-                  <div class="">Highway Fighters</div>
-                </div>
-            </div>
-		</aside>
-	</body>
+			<p></p>
+			
+		<table class="head" >
+			<th>Invoice:</th>
+			<td style="width: 510px;">{{$bike->invoiceId}}</td>
+			<th>Date:</th>
+			<td>{{$bike->dob}}</td>
+		</table>
+		<table class="border container">
+			<tr>
+				<th class="border th-width">Name</th>
+				<td class="border">{{$bike->client_name}}</td>
+				<th class="border th-width">Cell</th>
+				<td class="border">{{$bike->contact}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">Father's Name</th>
+				<td class="border">{{$bike->fName}}</td>
+				<th class="border th-width">NID No</th>
+				<td class="border">{{$bike->nid}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">Address</th>
+				<td class="border">{{$bike->address}}</td>
+				<th class="border th-width">Engine No</th>
+				<td class="border">{{$bike->engine_no}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">Chasis No</th>
+				<td class="border">{{$bike->chas_no}}</td>
+				<th class="border th-width">Weight</th>
+				<td class="border">{{$bike->weight}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">Model of Vehicle</th>
+				<td class="border">{{$bike->bike_name}}</td>
+				<th class="border th-width">Year of Manufacture</th>
+				<td class="border">{{$bike->manu}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">No of Cylinder With CC</th>
+				<td class="border">{{$bike->cc}}</td>
+				<th class="border th-width">Seating Capacity</th>
+				<td class="border">{{$bike->seat_cap}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">Brake</th>
+				<td class="border">{{$bike->brake}}</td>
+				<th rowspan="2" class="border th-width">Tyre Size</th>
+				<td class="border">{{$bike->ftyre}}</td>
+			</tr>
+			<tr>
+				<th class="border th-width">Color</th>
+				<td class="border">{{$bike->color}}</td>
+				<td class="border">{{$bike->rtyre}}</td>
+			</tr>
+		</table>
+		<p></p>
+		<table class="border container1">
+			<tr>
+				<th class="border">Brand</th>
+				<th class="border">Model No</th>
+				<th class="border">Color</th>
+				<th class="border">Qty</th>
+				<th class="border">Unit Price</th>
+				<th class="border">Amount</th>
+			</tr>
+			<tr>
+				<td class="border border2">{{$bike->brand}}</td>
+				<td class="border border2">{{$bike->bike_name}}</td>
+				<td class="border border2">{{$bike->color}}</td>
+				<td class="border border2">{{$bike->bsquantity}}</td>
+				<td class="border border2">{{$bike->sale_price}}</td>
+				<td class="border border2">{{$bike->total}}</td>
+			</tr>
+			<tr>
+				<th colspan="2" class="border">Bike Price</th>
+				<th colspan="2" class="border">Registration</th>
+				<th colspan="2" class="border">Total</th>
+			</tr>
+			<tr>
+				<td colspan="2" class="border border2">{{$bike->sale_price}}</td>
+				<td colspan="2" class="border border2">{{$bike->registration}}</td>
+				<td colspan="2" class="border border2">{{$bike->sale_price + $bike->registration}}</td>
+			</tr>
+		</table>
+		<h4 align="center">
+			TERMS AND CONDITIONS (মন্তব্য ও শর্তসমূহ)
+		</h4>
+		<p style="font-size: 15px;">
+			<span style="color: red;">* Bike or Scooter Sold and Pre-booked are non-refundable. (বিক্রিত এবং প্রি-বুকিং করা বাইক বা স্কুটার ফেরতযোগ্য নয় ।)</span><br>
+			* Warranty card/tool set provided by Highway Fighters at time of purchase; It is received by the buyer. 
+			(ক্রয়ের সময় ওয়্যারেন্টি কার্ড/ টুল সেট হাইওয়ে ফাইটার্স সরবরাহ করেছে; তা ক্রেতা গ্রহণ করেছে ।)<br>
+			*Apply for BRTA registration must be made within 1 month from the date of purchase. If the buyer does not accept BRTA registration within that period. Highway Fighters is not obliged to issue the import document and BRTA files the buyer. (ক্রয়ের তারিখ থেকে ১ মাসের মধ্যে বি.আর.টি.এ রেজিষ্ট্রেশন জন্য আবেদন অবশ্যই করতে হবে । যদি উক্ত সময়ের মধ্যে ক্রেতা বি.আর.টি.এ নিবন্ধন গ্রহণ না করলে, হাইওয়ে ফাইটার্স ক্রেতাকে আমদানি নথি এবং বি.আর.টি.এ ফাইল ইস্যু করতে বাধ্য নয় ।)<br>
+			* If the buyer wants to receive the complete file of BRTA, you have to pay the specified fee. 
+			(ক্রেতা যদি বি.আর.টি.এ. সম্পূর্ণ ফাইল গ্রহণ করতে চাই সেক্ষেত্রে নির্দিষ্ট ফি প্রদান করতে হবে ।)<br>
+			* Two copies of this sale invoice have been executed. One copy shall be retained by the buyer and the other by the company. 
+			(এই সেল ইনভয়েসটি দুইকপি সম্পাদন করা হয়েছে । একটি কপি ক্রেতা এবং অন্যটি কোম্পানির কাছে থাকবে ।)<br>
+			<b>Received with thanks the above mentioned vehicle is with perfect condition along with tools and accessories.</b><br>
+			<b>(উপরে উল্লিখিত গাড়িটি এবং সরঞ্জাম আনুষাঙ্গিক সহ সঠিক অবস্থায় রয়েছে তা গ্রহণ করার জন্য ধন্যবাদ।)</b>
+	</p>
+		<table class="container4">
+			<tr>
+				<td ><span class="pad">I am aware of warranty and service policy, no complaints when buying bike or scooter. I purchased a correct and fault free bike or scooter from Highway Fighters. I have no objection at the time of purchase. As there was no defect in the bike or scooter at the time of purchase, Highway Fighters shall not be liable for any defect thereafter. (আমি ওয়ারেন্টি এবং সার্ভিস পলিসি সম্পর্কে সচেতন, বাইক বা স্কুটার ক্রয়ের সময় কোন অভিযোগ নেই । আমি হাইওয়ে ফাইটার্স থেকে একটি সঠিক এবং ত্রুটিমুক্ত বাইক বা স্কুটার ক্রয় করেছি । ক্রয়ের করার সময় আমার কোন আপত্তি নাই । যেহেতু কেনার সময় বাইক বা স্কুটারের কোন প্রকার ত্রুটি ছিল না, তাই হাইওয়ে ফাইটার্স পরবর্তীতে কোন ত্রুটির জন্য দায়ী থাকবে না ।)</span></td>
+				<td ><span class="pad">I explained the warranty and service policy to the rider or buyer. We sold him a correct and fault free bike or scooter. He has no objection at the time of purchase. Buyer shall not hold Highway Fighters liable for any defects subsequent to sale. (আমি রাইডার বা ক্রেতাকে ওয়ারেন্টি এবং সার্ভিস পলিসি সম্পর্কে বুঝিয়ে দিলাম । আমরা উনাকে একটি সঠিক এবং ত্রুটিমুক্ত বাইক বা স্কুটার বিক্রয় করিলাম । ক্রয়ের সময় ক্রেতার কোন আপত্তি নাই । বিক্রয়ের পরবর্তীতে কোন ত্রুটির জন্য ক্রেতা হাইওয়ে ফাইটার্সকে দায়ী করতে পারবে না ।)</span></td>
+			</tr>
+		</table>
+		<p></p>
+		<p></p>
+		<table class="border2 container2">
+			<tr>
+				<td>Customer's Signature</td>
+				<td>Highway Fighters</td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
 </html>

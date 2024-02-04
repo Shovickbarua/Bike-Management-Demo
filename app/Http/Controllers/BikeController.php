@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bike;
+use App\Models\Bikesale;
 use App\Models\methods;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,13 @@ class BikeController extends Controller
         return view('bikes.bike_list',compact('bikes'));
     }
 
+     //Bike Stock List
+     public function bike_stocks()
+     {
+         $bikes= Bike::all();
+         return view('bikes.bike_stock_list',compact('bikes'));
+     }
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -38,17 +46,18 @@ class BikeController extends Controller
     public function store(Request $request)
     {
         $bike = new Bike();
-        if($request->has('image')){
+         if($request->has('image')){
             // dd($request);
              $image = $request->file('image');
              $name = time().uniqid().'.'.$image->extension();
-             $image->move('storage/app/products',$name);
+             $image->move(public_path('products'),$name);
              $bike->image = $name;
-         }
+         } 
         $bike->bike_name = $request->bike_name;
         $bike->brand = $request->brand;
         $bike->bquantity = $request->bquantity;
         $bike->bcost = $request->bcost;
+        $bike->color = $request->color;
         $bike->engine_no =$request->engine_no;
         $bike->dob =$request->dob;
         $bike->chas_no =$request->chas_no;
@@ -57,7 +66,8 @@ class BikeController extends Controller
         $bike->cc =$request->cc;
         $bike->seat_cap =$request->seat_cap;
         $bike->brake =$request->brake;
-        $bike->tyre =$request->tyre;
+        $bike->ftyre =$request->ftyre;
+        $bike->rtyre =$request->rtyre;
         $bike->weight =$request->weight;
         $bike->save();
 
@@ -98,17 +108,19 @@ class BikeController extends Controller
     public function update(Request $request, $id)
     {
         $bike = Bike::find($id);
-        if($request->has('image')){
+       if($request->has('image')){
             // dd($request);
              $image = $request->file('image');
              $name = time().uniqid().'.'.$image->extension();
-             $image->move('storage/app/products',$name);
+             $image->move(public_path('products'),$name);
              $bike->image = $name;
-         }
+         } 
+
          $bike->bike_name = $request->bike_name;
          $bike->brand = $request->brand;
          $bike->bquantity = $request->bquantity;
          $bike->bcost = $request->bcost;
+         $bike->color = $request->color;
          $bike->engine_no =$request->engine_no;
          $bike->dob =$request->dob;
          $bike->chas_no =$request->chas_no;
@@ -117,7 +129,8 @@ class BikeController extends Controller
          $bike->cc =$request->cc;
          $bike->seat_cap =$request->seat_cap;
          $bike->brake =$request->brake;
-         $bike->tyre =$request->tyre;
+         $bike->ftyre =$request->ftyre;
+         $bike->rtyre =$request->rtyre;
          $bike->weight =$request->weight;
         $bike->save();
         return redirect(route('bike.index'));

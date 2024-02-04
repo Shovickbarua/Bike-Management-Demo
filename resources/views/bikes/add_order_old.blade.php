@@ -89,8 +89,12 @@
                     <input type="text" class="form-control" id="" placeholder="" name="brake" value="">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="name">Tyre Size<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="tyre" value="">
+                    <label for="name">Fornt Tyre Size<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="ftyre" value="" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Rear Tyre Size<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="rtyre" value="" >
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Weight<font style="color:red">*</font></label>
@@ -119,6 +123,22 @@
                   <div class="form-group col-md-4">
                     <label for="name">BRTA<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="brta" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Customer Photo</label>
+                      <input type="file" class="form-control" id="image" name="cus_photo">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Bank Copy</label>
+                      <input type="file" class="form-control" id="image" name="b_copy">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Registration Slip</label>
+                      <input type="file" class="form-control" id="image" name="r_slip">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="image">Tax Token</label>
+                      <input type="file" class="form-control" id="image" name="t_token">
                   </div>
                 <div class="form-group col-md-12">
                   <button type="submit" class="btn btn-primary btn-sm" name="pro_btn">Save</button>               

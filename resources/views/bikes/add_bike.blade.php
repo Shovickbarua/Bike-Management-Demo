@@ -26,6 +26,13 @@
                     <input type="text" class="form-control" id="" placeholder="" name="bcost" value="">
                   </div>
                   <div class="form-group col-md-4">
+<<<<<<< HEAD
+=======
+                    <label for="name">Color<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="color" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
                     <label for="name">Engine No<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="engine_no" value="">
                   </div>
@@ -54,8 +61,17 @@
                     <input type="text" class="form-control" id="" placeholder="" name="brake" value="">
                   </div>
                   <div class="form-group col-md-4">
+<<<<<<< HEAD
                     <label for="name">Tyre Size<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="tyre" value="">
+=======
+                    <label for="name">Front Tyre Size<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="ftyre" value="">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Rear Tyre Size<font style="color:red">*</font></label>
+                    <input type="text" class="form-control" id="" placeholder="" name="rtyre" value="">
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Weight<font style="color:red">*</font></label>
@@ -69,7 +85,11 @@
                   <button type="submit" class="btn btn-primary btn-sm" name="pro_btn">Save</button>               
                 </div>
               </div>
+<<<<<<< HEAD
       </form>
+=======
+</form>
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
 
 
 

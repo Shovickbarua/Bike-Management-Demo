@@ -33,7 +33,12 @@ class CreateBikesalesTable extends Migration
             $table->string("cc");
             $table->string("seat_cap");
             $table->string("brake");
+<<<<<<< HEAD
             $table->string("tyre");
+=======
+            $table->string("ftyre");
+            $table->string("rtyre");
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
             $table->string("color");
             $table->string("weight");
             $table->string("sale_price");
@@ -42,6 +47,13 @@ class CreateBikesalesTable extends Migration
             $table->string("brta");
             $table->string("profit");
             $table->string("total");
+<<<<<<< HEAD
+=======
+            $table->string("cus_photo");
+            $table->string("b_copy");
+            $table->string("r_slip");
+            $table->string("t_token");
+>>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
             $table->timestamps();
         });
     }
