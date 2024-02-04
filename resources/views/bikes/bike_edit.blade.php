@@ -55,17 +55,12 @@
                     <input type="text" class="form-control" id="" placeholder="" name="brake" value="{{$bike->brake}}">
                   </div>
                   <div class="form-group col-md-4">
-<<<<<<< HEAD
-                    <label for="name">Tyre Size<font style="color:red">*</font></label>
-                    <input type="text" class="form-control" id="" placeholder="" name="tyre" value="{{$bike->tyre}}">
-=======
                     <label for="name">Front Tyre Size<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="ftyre" value="{{$bike->ftyre}}">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Rear Tyre Size<font style="color:red">*</font></label>
                     <input type="text" class="form-control" id="" placeholder="" name="tyre" value="{{$bike->rtyre}}">
->>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
                   </div>
                   <div class="form-group col-md-4">
                     <label for="name">Weight<font style="color:red">*</font></label>

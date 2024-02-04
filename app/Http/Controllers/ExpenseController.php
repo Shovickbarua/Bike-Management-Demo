@@ -43,22 +43,15 @@ class ExpenseController extends Controller
         $request->validate(
             [
                 'ex_name'   => 'required',
-<<<<<<< HEAD
-                'amount'    => 'required'
-=======
                 'amount'    => 'required',
                 'dob'       => 'required'
->>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
             ],
         );
 
         $expense = new Expense();
         $expense->ex_name = $request->ex_name;
         $expense->amount = $request->amount;
-<<<<<<< HEAD
-=======
         $expense->dob = $request->dob;
->>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
         $expense->save();
 
         return redirect(route('expense.index'));
@@ -70,8 +63,6 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-=======
     public function ex_reports(Request $request)
     {
         if(Session::has("fdob")){
@@ -110,7 +101,6 @@ class ExpenseController extends Controller
         return $pdf->download('expense_report.pdf');
     }
 
->>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
     public function show(Expense $expense)
     {
         //
@@ -122,16 +112,10 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function edit(Expense $expense)
-    {
-        //
-=======
     public function edit($id)
     {
         $expense = Expense::find($id);
         return view('expenses.expense_edit',compact('expense'));
->>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
     }
 
     /**
@@ -141,11 +125,6 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function update(Request $request, Expense $expense)
-    {
-        //
-=======
     public function update(Request $request,$id)
     {
         $expense = Expense::find($id);
@@ -155,7 +134,6 @@ class ExpenseController extends Controller
         $expense->save();
 
         return redirect(route('expense.index'));
->>>>>>> c1b1bb4f7cececa3c914f07d81f64a9466d4c6c1
     }
 
     /**
